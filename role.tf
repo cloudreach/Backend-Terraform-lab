@@ -20,8 +20,8 @@ data "aws_iam_policy_document" "github_access_policy" {
         values = ["sts.amazonaws.com"]
       }
       condition {
-        test = "StringEquals"
-        variable = "token.actions.githubusercontent.com:aud"
+        test = "StringLike"
+        variable = "token.actions.githubusercontent.com:sub"
         values = ["repo:sohanso/*:*"]     
       }
     }
